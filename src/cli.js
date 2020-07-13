@@ -175,7 +175,6 @@ function parseArgumentIntoOptions(rawArgs) {
     help: args["--help"] || false,
     directory: args["--directory"] || null,
     hooks: args["--hooks"] || null,
-    hooks: args["--imports"] || null,
     skip: args["--skip"] || false
   }
 }
