@@ -28,8 +28,8 @@ export async function createComponent(options) {
       if (options.hooks != null) {
         options.hooks.forEach(x => {
           v2Hooks += `,\n\t${extendedHookNames[x]}() { 
-      // Code goes here 
-    }`;
+    // Code goes here 
+  }`;
         });
       }
 
@@ -74,15 +74,9 @@ export default {
 
       let hookFunctions = '';
       if (options.hooks != null) {
-        if (options.type == "component") {
-          options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
+        options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
       // Code goes here! 
     })`);
-        } else {
-          options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
-  // Code goes here! 
-})`);
-        }
       }
 
       if (options.type == "component") {
