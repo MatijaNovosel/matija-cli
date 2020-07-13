@@ -28,13 +28,11 @@ flags:
     
     default: current directory (/.), can also be written explicitly with . or /.
 
-  -s (--skip) -> skip all prompts
-
   -f (--file) -> name of the newly created file
     
     default: name of the component
 
-  -hks (--hooks) -> list of injected lifecycle hooks, separated by a comma
+  --hooks -> list of injected lifecycle hooks, separated by a comma
     
     options: 
       beforeCreate - bC (Not in Vue 3)
