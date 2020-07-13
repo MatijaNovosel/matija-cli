@@ -30,25 +30,18 @@ flags:
 
   -hks (--hooks) -> list of injected lifecycle hooks, separated by a comma
     options: 
-      beforeCreate -> bC (Not in Vue 3)
-      created -> c (Not in Vue 3)
-
-      beforeMount -> bM
-      mounted -> m
-
+      beforeCreate - bC (Not in Vue 3)
+      created - c (Not in Vue 3)
+      beforeMount - bM
+      mounted - m
       beforeUpdate -> bU
       updated -> u
-
       beforeDestroy -> bD
       destroyed -> d
-
       activated -> a
       deactivated -> da
-
       errorCaptured -> eC
-
       onRenderTracked -> oRT (Not in Vue 2)
       onRenderTriggered -> oRTg (Not in Vue 2)
-
     default: null
     example: bM,bU,bD (can be separated by a space as well -> bM, bU, bD)
