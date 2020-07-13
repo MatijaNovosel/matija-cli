@@ -119,14 +119,16 @@ function validateOptions(options) {
     valid = false;
   }
 
-  let { areHooksValid, hooks } = parseHooks(options.hooks, options.version);
+  if (options.hooks == null) {
+    let { areHooksValid, hooks } = parseHooks(options.hooks, options.version);
 
-  if (!areHooksValid) {
-    console.log(`%s`, chalk.red.bold("Invalid hooks supplied!"));
-    valid = false;
+    if (!areHooksValid) {
+      console.log(`%s`, chalk.red.bold("Invalid hooks supplied!"));
+      valid = false;
+    }
+
+    options.hooks = hooks
   }
-
-  options.hooks = hooks
 
   if (options.directory !== null) {
     if (!fs.existsSync(options.directory)) {

@@ -1,6 +1,6 @@
 {
   "name": "@matijanovosel/matija-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "CLI for creating Vue files",
   "main": "src/index.js",
   "bin": {
@@ -17,6 +17,10 @@
     "cli",
     "create-project"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatijaNovosel/matija-cli.git"
+  },
   "author": "Matija Novosel",
   "license": "ISC",
   "dependencies": {
