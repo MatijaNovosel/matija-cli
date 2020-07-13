@@ -54,7 +54,7 @@ function printHelp() {
           onRenderTriggered -> oRTg (Not in Vue 2)
 
         %s: null
-        %s: bM,bU,bD (can be separated by a space as well -> bM, bU, bD)
+        %s: bM,bU,bD
         `,
     chalk.yellow("options"),
     chalk.green("explanation"),
@@ -72,10 +72,6 @@ function printHelp() {
 
 function parseHooks(hooks, version) {
   let areHooksValid = true;
-
-  if (hooks == null) {
-    return;
-  }
 
   let splitHooks = hooks.replace(/\s/g, "").split(",");
 
@@ -105,6 +101,8 @@ function parseHooks(hooks, version) {
       }
     });
   }
+
+  splitHooks = [ ...new Set(splitHooks) ];
 
   return { areHooksValid, hooks: splitHooks }
 }
