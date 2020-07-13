@@ -62,7 +62,7 @@ export default {
         options.hooks.forEach(x => imports.push(extendedHookNames[x]));
       }
 
-      let importStatement = '';
+      let importStatement = '\n';
       
       if (imports.length != 0) {
         importStatement = `import { ${imports.join(", ")} } from "vue"\n`;
