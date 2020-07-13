@@ -63,7 +63,7 @@ export default {
       }
 
       let importStatement = '';
-      
+
       if (imports.length != 0) {
         if (options.type == "component") {
           importStatement = `\nimport { ${imports.join(", ")} } from "vue";\n`;
@@ -74,9 +74,15 @@ export default {
 
       let hookFunctions = '';
       if (options.hooks != null) {
-        options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
-  // Code goes here! 
-})`);
+        if (options.type == "component") {
+          options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
+      // Code goes here! 
+    })`);
+        } else {
+          options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
+    // Code goes here! 
+  })`);
+        }
       }
 
       if (options.type == "component") {
