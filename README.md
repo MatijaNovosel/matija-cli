@@ -5,6 +5,7 @@ matija *flags*
 
 flags:
   -t (--type) -> type of the component
+    
     options: component | reusable
     explanation: 
       component - regular .vue file with specified hooks and imports, html template, script and style (defaults to regular css)
@@ -12,6 +13,7 @@ flags:
     default: component
 
   -n (--name) -> name of the component, if the component type is reusable it does not need to be supplied
+    
     default: test
 
   -v (--version) -> vue version, either vue 2 or vue 3 composition API syntax
