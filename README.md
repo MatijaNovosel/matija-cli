@@ -1,7 +1,7 @@
 # matija-cli
 Vue CLI for scaffolding new files.
 
-matija flags
+matija *flags*
 
 flags:
   -t (--type) -> type of the component
