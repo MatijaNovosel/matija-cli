@@ -65,7 +65,7 @@ export default {
       let importStatement = '';
       
       if (imports.length != 0) {
-        importStatement = `import { ${imports.join(", ")} } from "vue"`;
+        importStatement = `\nimport { ${imports.join(", ")} } from "vue"`;
       }
 
       let hookFunctions = '';
@@ -78,14 +78,14 @@ export default {
       if (options.type == "component") {
         fileContents = `<template></template>
 
-<script>
-${importStatement}
+<script>${importStatement}
 export default {
   name: "${options.name}",
   setup() {
     // Code goes here${hookFunctions}
   }
 } 
+
 </script>
 
 <style></style>`;
