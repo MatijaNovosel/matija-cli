@@ -80,8 +80,8 @@ export default {
     })`);
         } else {
           options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
-    // Code goes here! 
-  })`);
+  // Code goes here! 
+})`);
         }
       }
 
