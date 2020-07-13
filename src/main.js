@@ -75,8 +75,8 @@ export default {
       let hookFunctions = '';
       if (options.hooks != null) {
         options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
-      // Code goes here! 
-    })`);
+    // Code goes here! 
+  })`);
       }
 
       if (options.type == "component") {
