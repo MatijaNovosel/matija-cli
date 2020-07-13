@@ -170,7 +170,7 @@ function parseArgumentIntoOptions(rawArgs) {
     "-s": "--skip",
     "-f": "--file",
     "-i": "--imports",
-    "-p": "--version"
+    "-p": "--package"
   }, {
     argv: rawArgs.slice(2)
   });
