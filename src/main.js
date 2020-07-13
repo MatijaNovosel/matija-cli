@@ -79,6 +79,7 @@ export default {
         fileContents = `<template></template>
 
 <script>${importStatement}
+
 export default {
   name: "${options.name}",
   setup() {

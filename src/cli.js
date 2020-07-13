@@ -27,9 +27,7 @@ function printHelp() {
 
       -d (--directory) -> where the file will be created
         %s: current directory (/.), can also be written explicitly with . or /.
-
-      -s (--skip) -> skip all prompts
-
+      
       -f (--file) -> name of the newly created file
         %s: name of the component
 
@@ -157,7 +155,6 @@ function parseArgumentIntoOptions(rawArgs) {
     "--help": Boolean,
     "--directory": String,
     "--hooks": String,
-    "--skip": Boolean,
     "--file": String,
     "--imports": String,
     "-n": "--name",
@@ -165,7 +162,6 @@ function parseArgumentIntoOptions(rawArgs) {
     "-v": "--version",
     "-h": "--help",
     "-d": "--directory",
-    "-s": "--skip",
     "-f": "--file",
     "-i": "--imports"
   }, {
@@ -178,30 +174,7 @@ function parseArgumentIntoOptions(rawArgs) {
     version: args["--version"] || 3,
     help: args["--help"] || false,
     directory: args["--directory"] || null,
-    hooks: args["--hooks"] || null,
-    skip: args["--skip"] || false
-  }
-}
-
-async function promptForMissingOptions(options) {
-  const defaultComponent = "component";
-  const questions = [];
-
-  if (!options.skip) {
-    questions.push({
-      type: "list",
-      name: "component-type",
-      message: "Which type of file do you want to generate?",
-      choices: ["component", "reusable"],
-      default: defaultComponent
-    });
-  }
-
-  const answers = await inquirer.prompt(questions);
-
-  return {
-    ...options,
-    type: options.type || answers["component-type"]
+    hooks: args["--hooks"] || null
   }
 }
 
@@ -222,8 +195,6 @@ export async function cli(args) {
     console.log(`%s`, chalk.red.bold("Failed to create file!"));
     return;
   }
-
-  options = await promptForMissingOptions(options);
 
   await createComponent(options);
 }
