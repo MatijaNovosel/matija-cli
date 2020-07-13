@@ -1,0 +1,28 @@
+{
+  "name": "@matijanovosel/matija-cli",
+  "version": "1.0.1",
+  "description": "CLI for creating Vue files",
+  "main": "src/index.js",
+  "bin": {
+    "@matijanovosel/matija": "bin/matija",
+    "matija": "bin/matija"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "create-project"
+  ],
+  "author": "Matija Novosel",
+  "license": "ISC",
+  "dependencies": {
+    "arg": "^4.1.3",
+    "chalk": "^4.1.0",
+    "esm": "^3.2.25",
+    "inquirer": "^7.3.0"
+  }
+}
