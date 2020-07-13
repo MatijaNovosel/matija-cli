@@ -3,6 +3,7 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import fs from "fs";
 import { createComponent } from "./main";
+import { version } from './package.json';
 
 function printHelp() {
   console.log(`
@@ -74,6 +75,11 @@ function printHelp() {
 
 function parseHooks(hooks, version) {
   let areHooksValid = true;
+
+  if (hooks == null) {
+    return;
+  }
+
   let splitHooks = hooks.replace(/\s/g, "").split(",");
 
   // Validity of hooks in general
@@ -155,15 +161,16 @@ function parseArgumentIntoOptions(rawArgs) {
     "--skip": Boolean,
     "--file": String,
     "--imports": String,
+    "--package": Boolean,
     "-n": "--name",
     "-t": "--type",
     "-v": "--version",
     "-h": "--help",
     "-d": "--directory",
-    "-hks": "--hooks",
     "-s": "--skip",
     "-f": "--file",
-    "-i": "--imports"
+    "-i": "--imports",
+    "-p": "--version"
   }, {
     argv: rawArgs.slice(2)
   });
@@ -175,7 +182,8 @@ function parseArgumentIntoOptions(rawArgs) {
     help: args["--help"] || false,
     directory: args["--directory"] || null,
     hooks: args["--hooks"] || null,
-    skip: args["--skip"] || false
+    skip: args["--skip"] || false,
+    package: args["--package"] || false,
   }
 }
 
@@ -203,6 +211,11 @@ async function promptForMissingOptions(options) {
 
 export async function cli(args) {
   let options = parseArgumentIntoOptions(args);
+
+  if (options.package) {
+    console.log(`%s: ${version}`, chalk.green.bold("Version"));
+    return;
+  }
 
   if (options.help) {
     printHelp();
