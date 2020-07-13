@@ -3,7 +3,6 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import fs from "fs";
 import { createComponent } from "./main";
-import { version } from './package.json';
 
 function printHelp() {
   console.log(`
@@ -161,7 +160,6 @@ function parseArgumentIntoOptions(rawArgs) {
     "--skip": Boolean,
     "--file": String,
     "--imports": String,
-    "--package": Boolean,
     "-n": "--name",
     "-t": "--type",
     "-v": "--version",
@@ -169,8 +167,7 @@ function parseArgumentIntoOptions(rawArgs) {
     "-d": "--directory",
     "-s": "--skip",
     "-f": "--file",
-    "-i": "--imports",
-    "-p": "--package"
+    "-i": "--imports"
   }, {
     argv: rawArgs.slice(2)
   });
@@ -182,8 +179,7 @@ function parseArgumentIntoOptions(rawArgs) {
     help: args["--help"] || false,
     directory: args["--directory"] || null,
     hooks: args["--hooks"] || null,
-    skip: args["--skip"] || false,
-    package: args["--package"] || false,
+    skip: args["--skip"] || false
   }
 }
 
