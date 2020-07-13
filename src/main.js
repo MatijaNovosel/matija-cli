@@ -25,11 +25,13 @@ export async function createComponent(options) {
   switch (options.version) {
     case 2:
       let v2Hooks = '';
-      options.hooks.forEach(x => {
-        v2Hooks += `,\n\t${extendedHookNames[x]}() { 
-    // Code goes here 
-  }`;
-      });
+      if (options.hooks != null) {
+        options.hooks.forEach(x => {
+          v2Hooks += `,\n\t${extendedHookNames[x]}() { 
+      // Code goes here 
+    }`;
+        });
+      }
 
       if (options.type == "component") {
         fileContents = `<template></template>
@@ -56,13 +58,18 @@ export default {
     case 3:
       let imports = [];
 
-      options.hooks.forEach(x => imports.push(extendedHookNames[x]));
+      if (options.hooks != null) {
+        options.hooks.forEach(x => imports.push(extendedHookNames[x]));
+      }
+
       let importStatement = `import { ${imports.join(", ")} } from "vue"`;
 
       let hookFunctions = '';
-      options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
+      if (options.hooks != null) {
+        options.hooks.forEach(x => hookFunctions += `\n\t\t${extendedHookNames[x]}(() => { 
       // Code goes here! 
     })`);
+      }
 
       if (options.type == "component") {
         fileContents = `<template></template>
