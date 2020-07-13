@@ -4,6 +4,7 @@ Vue CLI for scaffolding new files.
 matija *flags*
 
 flags:
+
   -t (--type) -> type of the component
     
     options: component | reusable
