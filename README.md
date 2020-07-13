@@ -15,20 +15,24 @@ flags:
     default: test
 
   -v (--version) -> vue version, either vue 2 or vue 3 composition API syntax
+    
     options: 2 | 3
     default: 3
 
   -h (--help) -> print help message
 
   -d (--directory) -> where the file will be created
+    
     default: current directory (/.), can also be written explicitly with . or /.
 
   -s (--skip) -> skip all prompts
 
   -f (--file) -> name of the newly created file
+    
     default: name of the component
 
   -hks (--hooks) -> list of injected lifecycle hooks, separated by a comma
+    
     options: 
       beforeCreate - bC (Not in Vue 3)
       created - c (Not in Vue 3)
