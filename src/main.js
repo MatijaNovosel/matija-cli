@@ -108,5 +108,5 @@ export default {
   }
 
   fs.writeFileSync(finalOutput, fileContents);
-  console.log(`%s ${options.name}.${extension}`, chalk.green.bold("File successfully created"));
+  console.log(`%s ${options.file}.${extension}`, chalk.green.bold("File successfully created"));
 }
