@@ -62,10 +62,10 @@ export default {
         options.hooks.forEach(x => imports.push(extendedHookNames[x]));
       }
 
-      let importStatement = '\n';
+      let importStatement = '';
       
       if (imports.length != 0) {
-        importStatement = `import { ${imports.join(", ")} } from "vue"\n`;
+        importStatement = `\nimport { ${imports.join(", ")} } from "vue"\n`;
       }
 
       let hookFunctions = '';
@@ -78,7 +78,8 @@ export default {
       if (options.type == "component") {
         fileContents = `<template></template>
 
-<script>${importStatement}export default {
+<script>${importStatement}
+export default {
   name: "${options.name}",
   setup() {
     // Code goes here${hookFunctions}
