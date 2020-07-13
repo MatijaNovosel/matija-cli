@@ -85,7 +85,6 @@ export default {
     // Code goes here${hookFunctions}
   }
 } 
-
 </script>
 
 <style></style>`;
