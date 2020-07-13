@@ -119,7 +119,7 @@ function validateOptions(options) {
     valid = false;
   }
 
-  if (options.hooks == null) {
+  if (options.hooks != null) {
     let { areHooksValid, hooks } = parseHooks(options.hooks, options.version);
 
     if (!areHooksValid) {
