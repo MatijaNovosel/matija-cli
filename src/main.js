@@ -65,7 +65,11 @@ export default {
       let importStatement = '';
       
       if (imports.length != 0) {
-        importStatement = `\nimport { ${imports.join(", ")} } from "vue";\n`;
+        if (options.type == "component") {
+          importStatement = `\nimport { ${imports.join(", ")} } from "vue";\n`;
+        } else {
+          importStatement = `import { ${imports.join(", ")} } from "vue";\n\n`;
+        }
       }
 
       let hookFunctions = '';
