@@ -1,6 +1,6 @@
 {
   "name": "@matijanovosel/matija-cli",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "CLI for creating Vue files",
   "main": "src/index.js",
   "bin": {
